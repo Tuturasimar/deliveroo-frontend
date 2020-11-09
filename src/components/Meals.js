@@ -22,9 +22,10 @@ const Meals = ({ data }) => {
                         <span>{`${meal.price} €`}</span>
                         {meal.popular && (
                           <span
+                            className="popular"
                             style={{
                               color: "#FE8000",
-                              fontSize: "15px",
+                              fontSize: "10px",
                               fontFamily: "Bw Modelica Bold",
                             }}
                           >
