@@ -82,8 +82,10 @@ h3 {
   align-items: center;
   background-color: white;
   padding-left: 10px;
+  padding-top: 10px;
   border-radius: 10px;
   margin-bottom: 15px;
+  box-sizing: border-box;
 }
 
 .text {
