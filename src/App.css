@@ -1,1 +1,107 @@
 /* Other rules */
+body {
+  background-color: #f3f5f5;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.header {
+  background-color: white;
+}
+.header > img {
+  width: 100px;
+}
+
+.header-bot {
+  display: flex;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.header-bot img {
+  width: 330px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 32px;
+  font-family: "Bw Modelica Bold";
+  color: #2e3333;
+}
+
+h2 {
+  font-size: 24px;
+  font-family: "Bw Modelica Med";
+  color: #2e3333;
+}
+
+h3 {
+  font-size: 18px;
+  font-family: "BW Modelica Reg";
+  color: #2e3333;
+}
+
+.header p {
+  font-size: 19px;
+  font-family: "Bw Modelica Reg";
+  color: #868a8a;
+  line-height: 28.8px;
+}
+
+.header1 {
+  width: 65%;
+  padding-right: 10px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+.list img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.littlebox {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  height: 175px;
+  align-items: center;
+  background-color: white;
+  padding-left: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.description {
+  overflow: hidden;
+  font-size: 14px;
+  font-family: "Bw Modelica Reg";
+  line-height: 21.8px;
+  color: #868a8a;
+  height: 20px;
+}
+
+.price > span {
+  font-size: 17px;
+  font-family: "Bw Modelica Reg";
+  color: #868a8a;
+  margin-right: 10px;
+}
