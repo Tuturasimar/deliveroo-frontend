@@ -19,15 +19,25 @@ const Meals = ({ data, panier, setPanier }) => {
                         className="text"
                         onClick={() => {
                           const newMeal = [...panier];
+                          let isMealPresent = false;
 
-                          newMeal.push({
-                            id: meal.id,
-                            title: meal.title,
-                            price: meal.price,
-                          });
+                          for (let i = 0; i < newMeal.length; i++) {
+                            if (newMeal[i].id === meal.id) {
+                              newMeal[i].quantity++;
+                              isMealPresent = true;
+                            }
+                          }
+                          if (!isMealPresent) {
+                            newMeal.push({
+                              id: meal.id,
+                              title: meal.title,
+                              price: meal.price,
+                              quantity: 1,
+                            });
+                          }
 
                           setPanier(newMeal);
-                          console.log(newMeal);
+                          // console.log(newMeal);
                         }}
                       >
                         <h3>{meal.title}</h3>

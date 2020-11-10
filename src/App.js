@@ -5,15 +5,21 @@ import "./fonts.css";
 import axios from "axios";
 import Header from "./components/Header";
 import Meals from "./components/Meals";
+import Panier from "./components/Panier";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-library.add(faStar);
+import {
+  faStar,
+  faPlusSquare,
+  faMinusSquare,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faStar, faPlusSquare, faMinusSquare);
 
 function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [panier, setPanier] = useState([]);
+  // const [price, setPrice] = usePrice([0]);
   const fetchData = async () => {
     const response = await axios.get(
       "https://deliveroo-backend-ts.herokuapp.com/"
@@ -22,6 +28,17 @@ function App() {
     setData(response.data);
     setIsLoading(false);
   };
+
+  const calculTotal = () => {
+    let total = 0;
+    for (let i = 0; i < panier.length; i++) {
+      total = total + Number(panier[i].price) * Number(panier[i].quantity);
+      console.log(total);
+    }
+
+    return Number(total.toFixed(2));
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -35,19 +52,11 @@ function App() {
           <Header data={data} />
           <div className="main">
             <Meals data={data} panier={panier} setPanier={setPanier} />
-            <div className="panier">
-              {console.log(panier)}
-              {panier.map((commande, index) => {
-                return (
-                  <div key={index}>
-                    <div className="details">
-                      <span>{commande.title}</span>
-                      <span>{commande.price}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <Panier
+              panier={panier}
+              setPanier={setPanier}
+              calculTotal={calculTotal}
+            />
           </div>
         </div>
       )}
