@@ -58,13 +58,28 @@ h3 {
   padding-right: 10px;
 }
 
+.menu {
+  border: 2px red solid;
+  width: 65%;
+}
 .list {
   display: flex;
   flex-wrap: wrap;
-  width: 70%;
+  width: 100%;
   justify-content: space-between;
-
+  border: 1px black solid;
   box-sizing: border-box;
+}
+
+.main {
+  border: 1px violet solid;
+  width: 100%;
+}
+.panier {
+  width: 30%;
+  border: 1px red solid;
+  display: flex;
+  flex-direction: column;
 }
 
 .list img {
@@ -86,6 +101,7 @@ h3 {
   border-radius: 10px;
   margin-bottom: 15px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .text {
@@ -108,6 +124,11 @@ h3 {
   font-family: "Bw Modelica Reg";
   color: #868a8a;
   margin-right: 10px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (max-width: 1300px) {

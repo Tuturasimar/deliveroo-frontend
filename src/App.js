@@ -13,6 +13,7 @@ library.add(faStar);
 function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [panier, setPanier] = useState([]);
   const fetchData = async () => {
     const response = await axios.get(
       "https://deliveroo-backend-ts.herokuapp.com/"
@@ -24,6 +25,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <>
       {isLoading ? (
@@ -31,8 +33,21 @@ function App() {
       ) : (
         <div className="container">
           <Header data={data} />
-          <div>
-            <Meals data={data} />
+          <div className="main">
+            <Meals data={data} panier={panier} setPanier={setPanier} />
+            <div className="panier">
+              {console.log(panier)}
+              {panier.map((commande, index) => {
+                return (
+                  <div key={index}>
+                    <div className="details">
+                      <span>{commande.title}</span>
+                      <span>{commande.price}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}
